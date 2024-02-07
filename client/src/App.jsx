@@ -1,45 +1,58 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+import './App.css';
+import {io} from "socket.io-client";
+import Header from "./components/Header";
+import Button from 'react-bootstrap/Button';
 
 function App() {
   const [count, setCount] = useState(0)
-  const [randomNumber, setRandomNumber] = useState(0);
-
-  async function getRandomNumber() {
-    const res = await fetch("/random_number");
-    console.log(res);
-    const body = await res.json();
-    console.log(body);
-  }
+  const [socket, setSocket] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getRandomNumber();
+    const s = io();
+    setSocket(s);
+    return () => {
+      s.disconnect();
+    };
   }, []);
+
+  useEffect(() => {
+    if (!socket) return;
+    const callback = (newCount) => {
+      setCount(newCount);
+      if (loading) {
+        setLoading(false);
+      }
+    }
+    socket.on("new state", callback);
+    return () => {
+      socket.off("new state", callback);
+    }
+  }, [socket, loading]);
+
+  function increment() {
+    socket.emit("increment");
+  }
+
+  function decrement() {
+    socket.emit("decrement");
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="main-container">
+      <Header></Header>\
+      <hr></hr>
+      <Button variant="outline-primary">Primary</Button>{' '}
+      <Button variant="outline-secondary">Secondary</Button>{' '}
+      <Button variant="outline-success">Success</Button>{' '}
+      <Button variant="outline-warning">Warning</Button>{' '}
+      <Button variant="outline-danger">Danger</Button>{' '}
+      <Button variant="outline-info">Info</Button>{' '}
+      <Button variant="outline-light">Light</Button>{' '}
+      <Button variant="outline-dark">Dark</Button>
+    </div>
     </>
   )
 }
