@@ -15,13 +15,22 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server);
 
-io.on("connection", (socket) => {
-  console.log("Connection received on backend!");
+let messages: string[] = [];; // Store chat messages
 
-  socket.on("send_message", (data) => {
-    console.log("Message received:", data);
-    io.emit("receive_message", data); // Make sure this matches your client-side expectation
-  });
+io.on('connection', (socket) => {
+    console.log('New client connected');
+    
+    // Send existing messages to the new client
+    socket.emit('load messages', messages);
+    
+    socket.on('disconnect', () => {
+        console.log('Client disconnected');
+    });
+    
+    socket.on('new message', (message) => {
+        messages.push(message); // Store new message
+        io.emit('update messages', message); // Broadcast new message
+    });
 });
 
 app.engine('handlebars', engine());
