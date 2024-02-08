@@ -6,7 +6,7 @@ import fs from "fs";
 import * as dotenv from "dotenv";
 dotenv.config();
 
-let COUNT = 0;
+
 
 const DEBUG = process.env.NODE_ENV !== "production";
 const MANIFEST: Record<string, any> = DEBUG ? {} : JSON.parse(fs.readFileSync("static/.vite/manifest.json").toString())
@@ -16,23 +16,11 @@ const server = createServer(app);
 const io = new Server(server);
 
 io.on("connection", (socket) => {
-  console.log("Connection recieved!");
+  console.log("Connection received on backend!");
 
-  socket.emit("new state", COUNT);
-
-  socket.on("disconnect",  () => {
-    console.log("Client disconnected!")
-  });
-
-  socket.on("increment", (data) => {
-    COUNT ++;
-    io.emit("new state", COUNT);
-
-  });
-
-  socket.on("decrement", () => {
-    COUNT --;
-    io.emit("new state", COUNT);
+  socket.on("send_message", (data) => {
+    console.log("Message received:", data);
+    io.emit("receive_message", data); // Make sure this matches your client-side expectation
   });
 });
 
@@ -69,9 +57,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/random_number", (req, res) => {
-  res.json({ number: Math.random() * 1000 });
-});
+
 
 server.listen(3000, () => {
   console.log("Listening on port 3000...");
