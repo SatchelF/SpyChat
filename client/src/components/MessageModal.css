@@ -1,0 +1,21 @@
+
+.modal-content {
+    background-color: #141414 !important; /* Dark background */
+    color: #00FF66 !important; /* Green text */
+  }
+  
+  .modal-header, .modal-body, .modal-footer {
+    border-color: #00FF66 !important; /* Green borders */
+  }
+  /* New styles for the input field */
+.form-control {
+    background-color: #222222 !important; /* Darker background for input */
+    color: #00FF66 !important; /* White text color for input */
+    border-color: #00FF66 !important; /* Green border for input */
+  }
+
+  .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #00FF66 !important;
+    opacity: 1; /* Firefox */
+  }
+  

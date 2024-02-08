@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
+import "./MessageModal.css"
 
 function MessageModal({ showModal, handleCloseModal, currentMessage, setCurrentMessage, sendMessage }) {
   return (
     <Modal show={showModal} onHide={handleCloseModal}>
       <Modal.Header closeButton>
-        <Modal.Title>Send a Message</Modal.Title>
+        <Modal.Title></Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form.Control
@@ -17,7 +18,7 @@ function MessageModal({ showModal, handleCloseModal, currentMessage, setCurrentM
         />
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleCloseModal}>
+        <Button variant="outline-warning" onClick={handleCloseModal}>
           Close
         </Button>
         <Button variant="outline-success" onClick={sendMessage}>

@@ -1,17 +1,21 @@
+import Header from './components/Header';
+import MessageModal from './components/MessageModal';
+import './App.css';
 import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import { Button } from 'react-bootstrap';
-import Header from './components/Header'; // Adjust path as needed
-import MessageModal from './components/MessageModal'; // Adjust path as needed
-import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMessage } from '@fortawesome/free-solid-svg-icons';
 
-function ChatApp() {
+function ChatApp()
+{
   const [currentMessage, setCurrentMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [socket, setSocket] = useState(null);
 
-  useEffect(() => {
+  useEffect(() =>
+  {
     const newSocket = io(`http://localhost:3000`);
     setSocket(newSocket);
 
@@ -21,8 +25,10 @@ function ChatApp() {
     return () => newSocket.disconnect();
   }, []);
 
-  const sendMessage = () => {
-    if (socket && currentMessage.trim()) {
+  const sendMessage = () =>
+  {
+    if (socket && currentMessage.trim())
+    {
       socket.emit('new message', currentMessage);
       setCurrentMessage('');
       setShowModal(false);
@@ -37,7 +43,9 @@ function ChatApp() {
       <div className="main-container">
         <Header />
         <hr />
-        <Button variant="primary" onClick={handleShowModal}>Chat</Button>
+        <Button variant="outline-success" onClick={handleShowModal} className="fixed-chat-button thick-outline">
+          <FontAwesomeIcon icon={faMessage} />
+        </Button>
         <h1 style={{ color: '#00FF66' }}>Messages:</h1>
         <div>
           {messages.map((message, index) => (

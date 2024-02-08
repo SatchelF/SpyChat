@@ -1,7 +1,8 @@
 :root {
   font-family: "monospace";
   line-height: 1.5;
-  font-weight: 400;;
+  font-weight: 400;
+  background-color: #141414;
 }
 
 .header-container {
@@ -11,6 +12,32 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+
+}
+
+.fixed-chat-button {
+  color:#00FF66 !important;
+  position: fixed;
+  /* Keep the button in the same place even when scrolling */
+  bottom: 20px;
+  /* Distance from the bottom of the viewport */
+  right: 20px;
+  /* Distance from the right of the viewport */
+  z-index: 1000;
+  /* Ensure the button is above other content */
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  /* Adjust this value to make the icon bigger or smaller */
+
+
+  
+}
+
+.thick-outline {
+  border-width: 2px !important; /* Adjust the thickness as desired */
+  border-color: #00FF66 !important;
+  ;
 }
 
 
