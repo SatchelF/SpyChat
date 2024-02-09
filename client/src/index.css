@@ -2,7 +2,7 @@
   font-family:sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background-color: #141414;
+  background-color: black;
 }
 
 .font-link {
@@ -69,6 +69,7 @@ hr {
 }
 
 .messages-container {
+  padding: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: start;

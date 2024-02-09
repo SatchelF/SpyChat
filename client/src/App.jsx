@@ -45,7 +45,7 @@ function ChatApp()
         <Button variant="outline-success" onClick={() => setShowModal(true)} className="fixed-chat-button thick-outline">
           <FontAwesomeIcon icon={faMessage} />
         </Button>
-        <h1 style={{ color: '#00FF66' }}>Messages:</h1>
+        <h1 style={{ color: '#00FF66',paddingLeft: '50px' }}>Messages:</h1>
         <div className='messages-container'>
           {messages.map((message, index) => (
             // Use MessageCard for each message

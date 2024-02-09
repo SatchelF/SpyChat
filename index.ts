@@ -15,7 +15,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server);
 
-let messages: Array<{codename: string, password: string, message: string}> = []; // Store chat messages as objects
+let messages: Array<{codename: string, password: string, message: string, timestamp: string}> = []; // Store chat messages as objects
 
 io.on('connection', (socket) => {
     console.log('New client connected');
@@ -27,10 +27,16 @@ io.on('connection', (socket) => {
         console.log('Client disconnected');
     });
     
+    // Listen for new messages and add a timestamp before storing and broadcasting
     socket.on('new message', (msgObject) => {
-        messages.push(msgObject); // Store new message object
-        io.emit('update messages', msgObject); // Broadcast new message object
-    });
+      // Construct a new message object with a timestamp
+      const messageWithTimestamp = {
+          ...msgObject,
+          timestamp: new Date().toISOString() // Add a timestamp in ISO 8601 format
+      };
+      messages.push(messageWithTimestamp); // Store the new message object in the array
+      io.emit('update messages', messageWithTimestamp); // Broadcast the new message object
+  });
 });
 
 app.engine('handlebars', engine());
