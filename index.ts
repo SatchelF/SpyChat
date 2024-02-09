@@ -15,7 +15,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server);
 
-let messages: string[] = [];; // Store chat messages
+let messages: Array<{codename: string, password: string, message: string}> = []; // Store chat messages as objects
 
 io.on('connection', (socket) => {
     console.log('New client connected');
@@ -27,9 +27,9 @@ io.on('connection', (socket) => {
         console.log('Client disconnected');
     });
     
-    socket.on('new message', (message) => {
-        messages.push(message); // Store new message
-        io.emit('update messages', message); // Broadcast new message
+    socket.on('new message', (msgObject) => {
+        messages.push(msgObject); // Store new message object
+        io.emit('update messages', msgObject); // Broadcast new message object
     });
 });
 

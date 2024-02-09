@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import MessageModal from './components/MessageModal';
+import MessageCard from './components/MessageCard';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
@@ -14,8 +15,7 @@ function ChatApp()
   const [showModal, setShowModal] = useState(false);
   const [socket, setSocket] = useState(null);
 
-  useEffect(() =>
-  {
+  useEffect(() => {
     const newSocket = io(`http://localhost:3000`);
     setSocket(newSocket);
 
@@ -25,15 +25,14 @@ function ChatApp()
     return () => newSocket.disconnect();
   }, []);
 
-  const sendMessage = () =>
-  {
-    if (socket && currentMessage.trim())
-    {
+  const sendMessage = () => {
+    if (socket && currentMessage.message.trim()) {
       socket.emit('new message', currentMessage);
-      setCurrentMessage('');
+      setCurrentMessage({ codename: '', password: '', message: '' });
       setShowModal(false);
     }
   };
+
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
@@ -43,20 +42,21 @@ function ChatApp()
       <div className="main-container">
         <Header />
         <hr />
-        <Button variant="outline-success" onClick={handleShowModal} className="fixed-chat-button thick-outline">
+        <Button variant="outline-success" onClick={() => setShowModal(true)} className="fixed-chat-button thick-outline">
           <FontAwesomeIcon icon={faMessage} />
         </Button>
         <h1 style={{ color: '#00FF66' }}>Messages:</h1>
-        <div>
+        <div className='messages-container'>
           {messages.map((message, index) => (
-            <p key={index} style={{ color: '#00FF66' }}>{message}</p>
+            // Use MessageCard for each message
+            <MessageCard key={index} message={message} className="message-card" />
           ))}
         </div>
       </div>
-
+  
       <MessageModal
         showModal={showModal}
-        handleCloseModal={handleCloseModal}
+        handleCloseModal={() => setShowModal(false)}
         currentMessage={currentMessage}
         setCurrentMessage={setCurrentMessage}
         sendMessage={sendMessage}

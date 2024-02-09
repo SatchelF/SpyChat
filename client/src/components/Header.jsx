@@ -3,8 +3,10 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 const Header = () => {
     return (
         <div className="header-container">
-            <h2 className="header-text">Spy Chat</h2>
+            <h2 className="header-text font-link">Spy Chat</h2>
+            <div className="icon">
             <FontAwesomeIcon icon={faUserSecret} />
+            </div>
         </div>
         
     );
