@@ -1,0 +1,21 @@
+.header-container {
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .header-text {
+    font-size: 64px;
+    color: #00FF66;
+  }
+
+  .icon{
+    font-size: 86px !important;
+    color:#00FF66 !important;
+    padding-left: 30px;
+    padding-top: 10px;
+  }

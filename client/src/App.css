@@ -6,6 +6,33 @@
     background-color: black;
   }
   
-  hr{
-    color: #00FF66
+  .fixed-chat-button {
+    color:#00FF66 !important;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 100px;
+    height: 70px;
+    font-size: 40px;
+    border-color: #00FF66 !important;
   }
+
+  
+  .thick-outline {
+    border-width: 2px !important; 
+    
+    ;
+  }
+  
+  .messages-container {
+    padding-top: 80px;
+    padding-left: 150px;
+    padding-right: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 30px; 
+  }
+
+  

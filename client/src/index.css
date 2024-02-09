@@ -5,74 +5,20 @@
   background-color: black;
 }
 
-.font-link {
-  font-family: 'SixtyFour';
-}
-.header-container {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-}
-
-
-
-
-.fixed-chat-button {
-  color:#00FF66 !important;
-  position: fixed;
-  /* Keep the button in the same place even when scrolling */
-  bottom: 20px;
-  /* Distance from the bottom of the viewport */
-  right: 20px;
-  /* Distance from the right of the viewport */
-  z-index: 1000;
-  /* Ensure the button is above other content */
-  width: 100px;
-  height: 70px;
-  font-size: 40px;
-  /* Adjust this value to make the icon bigger or smaller */
-}
-
-.icon{
-  font-size: 86px;
-  color:#00FF66 !important;
-  padding-left: 30px;
-  padding-top: 10px;
-}
-
-.thick-outline {
-  border-width: 2px !important; /* Adjust the thickness as desired */
-  border-color: #00FF66 !important;
-  ;
-}
-
-
-
 hr {
   border-color: #00FF66;
-  /* Correct property for border color */
   border-top-width: 2px;
-  /* Width of the top border */
   border-top-style: solid;
-  /* Makes the border solid */
 }
 
 
 
-.header-text {
-  font-size: 64px;
-  color: #00FF66;
-}
 
-.messages-container {
-  padding: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  gap: 30px; /* Adjust the gap between cards */
-}
+
+
+
+
+
+
+
 
