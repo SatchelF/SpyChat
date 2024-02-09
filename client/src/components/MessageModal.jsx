@@ -40,7 +40,7 @@ function MessageModal({ showModal, handleCloseModal, currentMessage, setCurrentM
         <Button variant="outline-warning" onClick={handleCloseModal}>
           Close
         </Button>
-        <Button variant="outline-success" onClick={sendMessage}>
+        <Button variant="outline-success neon-green" onClick={sendMessage}>
           Send Message
         </Button>
       </Modal.Footer>

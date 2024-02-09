@@ -1,28 +1,30 @@
 .modal-content {
-  background-color: #141414 !important;
+  background-color: black !important;
   /* Dark background */
   color: #00FF66 !important;
-  /* Green text */
+
+  border-color: #00FF66 !important;
 }
 
 
-
+.modal-title{
+  font-size: 46px !important;
+}
 .modal-header,
 .modal-body,
 .modal-footer {
   border: none !important;
-  /* Green borders */
 }
 
 /* New styles for the input field */
 .form-control {
-  background-color: #222222 !important;
+  background-color: black !important;
   /* Darker background for input */
   color: #00FF66 !important;
   /* White text color for input */
   border-color: #00FF66 !important;
   /* Green border for input */
-  margin-top: 30px !important;
+  margin-top: 10px !important;
 }
 
 .form-control::placeholder {
@@ -30,4 +32,8 @@
   color: #00FF66 !important;
   opacity: 1;
   /* Firefox */
+}
+.neon-green{
+  border-color: #00FF66 !important;
+  color: #00FF66 !important;
 }

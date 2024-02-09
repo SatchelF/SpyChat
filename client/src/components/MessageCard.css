@@ -16,7 +16,7 @@
 
 .password-input{
     width: 200px !important;
-    border: 2px solid #00FF66 !important;
+    border: 1px solid #00FF66 !important;
     background-color: black !important;
     bottom: 5px;
     position: absolute;
@@ -38,4 +38,17 @@
     overflow-y: auto; /* Enables vertical scrolling */
     color: #FFB000; /* Keeps your inline style color */
 }
+
+.custom-toast {
+    background-color: black !important; /* Override Bootstrap's default background */
+    border: 1px solid red !important; /* Red border for the toast */
+  }
+  
+  .custom-toast-header {
+    border-bottom: 1px solid red !important; /* Red border for the toast header */
+  }
+  
+  .custom-toast-text {
+    color: red !important; /* Red text color for the toast content */
+  }
 

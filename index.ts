@@ -20,7 +20,7 @@ let messages: Array<{codename: string, password: string, message: string, timest
 io.on('connection', (socket) => {
     console.log('New client connected');
     
-    // Send existing messages to the new client
+    // Send existing messages to client
     socket.emit('load messages', messages);
     
     socket.on('disconnect', () => {

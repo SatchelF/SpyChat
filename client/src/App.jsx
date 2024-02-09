@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage } from '@fortawesome/free-solid-svg-icons';
 import CryptoJS from 'crypto-js';
 
-function ChatApp()
+function App()
 {
   const [currentMessage, setCurrentMessage] = useState('');
   const [messages, setMessages] = useState([]);
@@ -17,7 +17,7 @@ function ChatApp()
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io(`http://localhost:3000`);
+    const newSocket = io();
     setSocket(newSocket);
 
     newSocket.on('load messages', setMessages);
@@ -28,15 +28,11 @@ function ChatApp()
 
   const sendMessage = () => {
     if (socket && currentMessage.message.trim() && currentMessage.password.trim()) {
-      // Encrypt the message using AES and the password
       const encryptedMessage = CryptoJS.AES.encrypt(currentMessage.message, currentMessage.password).toString();
   
-      // Create a new object with the encrypted message, excluding the password for security
       const messageToSend = {
         codename: currentMessage.codename,
-        // Replace the message with the encrypted message
         message: encryptedMessage,
-        // Do not send the password!
       };
   
       socket.emit('new message', messageToSend);
@@ -46,24 +42,23 @@ function ChatApp()
   };
 
 
-  const handleShowModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
 
   return (
     <>
       <div className="main-container">
         <Header />
-        <hr />
+      <div className="top-padding">
         <Button variant="outline-success" onClick={() => setShowModal(true)} className="fixed-chat-button thick-outline">
           <FontAwesomeIcon icon={faMessage} size="3x" />
         </Button>
-        <h1 style={{ color: '#00FF66',paddingLeft: '50px', size:'40px' }}>Messages:</h1>
+        <h1 style={{ color: '#00FF66',paddingLeft: '50px', fontSize:'60px' }}>Messages:</h1>
         <div className='messages-container'>
           {messages.map((message, index) => (
             // Use MessageCard for each message
             <MessageCard key={index} message={message} className="message-card" />
           ))}
         </div>
+      </div>
       </div>
   
       <MessageModal
@@ -77,4 +72,4 @@ function ChatApp()
   );
 }
 
-export default ChatApp;
+export default App;
