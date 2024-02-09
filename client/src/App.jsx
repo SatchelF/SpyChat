@@ -7,6 +7,7 @@ import { io } from 'socket.io-client';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage } from '@fortawesome/free-solid-svg-icons';
+import CryptoJS from 'crypto-js';
 
 function ChatApp()
 {
@@ -26,8 +27,19 @@ function ChatApp()
   }, []);
 
   const sendMessage = () => {
-    if (socket && currentMessage.message.trim()) {
-      socket.emit('new message', currentMessage);
+    if (socket && currentMessage.message.trim() && currentMessage.password.trim()) {
+      // Encrypt the message using AES and the password
+      const encryptedMessage = CryptoJS.AES.encrypt(currentMessage.message, currentMessage.password).toString();
+  
+      // Create a new object with the encrypted message, excluding the password for security
+      const messageToSend = {
+        codename: currentMessage.codename,
+        // Replace the message with the encrypted message
+        message: encryptedMessage,
+        // Do not send the password!
+      };
+  
+      socket.emit('new message', messageToSend);
       setCurrentMessage({ codename: '', password: '', message: '' });
       setShowModal(false);
     }
@@ -43,7 +55,7 @@ function ChatApp()
         <Header />
         <hr />
         <Button variant="outline-success" onClick={() => setShowModal(true)} className="fixed-chat-button thick-outline">
-          <FontAwesomeIcon icon={faMessage} size="x" />
+          <FontAwesomeIcon icon={faMessage} size="3x" />
         </Button>
         <h1 style={{ color: '#00FF66',paddingLeft: '50px', size:'40px' }}>Messages:</h1>
         <div className='messages-container'>

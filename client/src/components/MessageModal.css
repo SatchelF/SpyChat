@@ -1,12 +1,9 @@
 .modal-content {
-  background-color: black !important;
+  background-color: #141414 !important;
   /* Dark background */
   color: #00FF66 !important;
   /* Green text */
-  border: 1px solid #00FF66 !important;
 }
-
-
 
 
 

@@ -14,6 +14,15 @@
     font-size: 8px !important;
 }
 
+.password-input{
+    width: 200px !important;
+    border: 2px solid #00FF66 !important;
+    background-color: black !important;
+    bottom: 5px;
+    position: absolute;
+  }
+  
+
 
 /* Adjustments to position the button */
 .decrypt-button {
@@ -23,3 +32,10 @@
     width: 60px;
     height: 40px;
 }
+
+.scrollable-message-content {
+    height: 12rem; /* Adjust based on your preference */
+    overflow-y: auto; /* Enables vertical scrolling */
+    color: #FFB000; /* Keeps your inline style color */
+}
+
