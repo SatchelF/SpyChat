@@ -54,7 +54,7 @@ function MessageCard({ message })
         <Form.Control
           size="md"
           type="password"
-          placeholder="Password"
+          placeholder="Passphrase"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className='password-input'

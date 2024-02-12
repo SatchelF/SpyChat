@@ -1,14 +1,12 @@
-/* Simple border style for the card */
 .simple-border-card {
     width: 18rem !important;
     height: 22rem !important;
     background-color: black !important;
     border: 2px solid #00FF66 !important;
     color: #00FF66 !important;
-    position: relative; /* Add this line to enable positioning of child elements */
+    position: relative; 
 }
 
-/* Style for the timestamp, corrected class name */
 .time-stamp {
     color: #00FF66 !important;
     font-size: 8px !important;
@@ -24,9 +22,8 @@
   
 
 
-/* Adjustments to position the button */
 .decrypt-button {
-    position: absolute; /* Position the button absolutely within its relative parent */
+    position: absolute; 
     bottom: 5px;
     right: 5px;
     width: 60px;
@@ -34,21 +31,21 @@
 }
 
 .scrollable-message-content {
-    height: 12rem; /* Adjust based on your preference */
-    overflow-y: auto; /* Enables vertical scrolling */
-    color: #FFB000; /* Keeps your inline style color */
+    height: 12rem; 
+    overflow-y: auto; 
+    color: #FFB000; 
 }
 
 .custom-toast {
-    background-color: black !important; /* Override Bootstrap's default background */
-    border: 1px solid red !important; /* Red border for the toast */
+    background-color: black !important; 
+    border: 1px solid red !important; 
   }
   
   .custom-toast-header {
-    border-bottom: 1px solid red !important; /* Red border for the toast header */
+    border-bottom: 1px solid red !important; 
   }
   
   .custom-toast-text {
-    color: red !important; /* Red text color for the toast content */
+    color: red !important; 
   }
 

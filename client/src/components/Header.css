@@ -1,15 +1,15 @@
 .header-container {
   width: 100%;
-  height: 100px; /* Adjusted for a fixed height */
+  height: 150px; 
   max-height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: fixed; /* Fixes the header at the top */
-  top: 0; /* Aligns the header at the top of the viewport */
-  left: 0; /* Aligns the header to the left of the viewport */
-  z-index: 1000; /* Ensures the header is above other content */
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  z-index: 1000; 
   overflow: hidden;
 }
 

@@ -7,7 +7,6 @@ const Header = () => {
     <div className="header-container">
       <h2 className="header-text">Spy Chat</h2>
       <FontAwesomeIcon icon={faUserSecret} className="icon" />
-      
     </div>
   );
 }

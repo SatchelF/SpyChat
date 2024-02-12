@@ -33,7 +33,7 @@ function MessageModal({ showModal, handleCloseModal, currentMessage, setCurrentM
           type="password"
           value={currentMessage.password || ''}
           onChange={(e) => handleChange('password', e.target.value)}
-          placeholder="Password"
+          placeholder="Passphrase"
         />
       </Modal.Body>
       <Modal.Footer>

@@ -1,6 +1,5 @@
 .modal-content {
   background-color: black !important;
-  /* Dark background */
   color: #00FF66 !important;
 
   border-color: #00FF66 !important;
@@ -16,22 +15,16 @@
   border: none !important;
 }
 
-/* New styles for the input field */
 .form-control {
   background-color: black !important;
-  /* Darker background for input */
   color: #00FF66 !important;
-  /* White text color for input */
   border-color: #00FF66 !important;
-  /* Green border for input */
   margin-top: 10px !important;
 }
 
 .form-control::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #00FF66 !important;
   opacity: 1;
-  /* Firefox */
 }
 .neon-green{
   border-color: #00FF66 !important;

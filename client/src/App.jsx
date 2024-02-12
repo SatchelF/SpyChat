@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMessage } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import CryptoJS from 'crypto-js';
 
 function App()
@@ -49,7 +49,7 @@ function App()
         <Header />
       <div className="top-padding">
         <Button variant="outline-success" onClick={() => setShowModal(true)} className="fixed-chat-button thick-outline">
-          <FontAwesomeIcon icon={faMessage} size="3x" />
+          <FontAwesomeIcon icon={faPlus} size="3x" />
         </Button>
         <h1 style={{ color: '#00FF66',paddingLeft: '50px', fontSize:'60px' }}>Messages:</h1>
         <div className='messages-container'>
