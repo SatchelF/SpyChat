@@ -3,7 +3,7 @@ import { Card, Button, Form, Toast, ToastContainer } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUnlockKeyhole, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 import CryptoJS from 'crypto-js';
-import './MessageCard.css'; // Import the CSS file
+import './MessageCard.css'; 
 
 function MessageCard({ message })
 {
@@ -43,12 +43,12 @@ function MessageCard({ message })
   };
 
   return (
-    <Card className="simple-border-card">
+    <Card className="simple-border-card press-start-font">
       <Card.Body>
         <Card.Title>CODENAME: {message.codename}</Card.Title>
-        <Card.Subtitle className="mb-2 time-stamp">TIME: {message.timestamp}</Card.Subtitle>
+        <Card.Subtitle className="mb-2 time-stamp press-start-font">TIME: {message.timestamp}</Card.Subtitle>
         <hr />
-        <Card.Text style={messageStyle} className='scrollable-message-content'>
+        <Card.Text style={messageStyle} className='scrollable-message-content press-start-font'>
           {decryptedMessage || message.message}
         </Card.Text>
         <Form.Control
@@ -57,18 +57,18 @@ function MessageCard({ message })
           placeholder="Passphrase"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className='password-input'
+          className='password-input press-start-font'
         />
-        <Button variant="outline-warning" className="decrypt-button" onClick={decryptMessage}>
+        <Button variant="outline-warning" className="decrypt-button press-start-font" onClick={decryptMessage}>
           <FontAwesomeIcon icon={faUnlockKeyhole} />
         </Button>
       </Card.Body>
-      <ToastContainer position="top-end" className="p-3">
-        <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide className="custom-toast">
-          <Toast.Header className="custom-toast-header" style={{ backgroundColor: 'black' }}>
+      <ToastContainer position="top-end" className="p-3 press-start-font">
+        <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide className="custom-toast press-start-font">
+          <Toast.Header className="custom-toast-header press-start-font" style={{ backgroundColor: 'black' }}>
             <FontAwesomeIcon icon={faSkullCrossbones} size="8x" color="red" style={{ marginLeft: '70px' }} />
           </Toast.Header>
-          <Toast.Body className="custom-toast-text" style={{ backgroundColor: 'black', fontSize: '24px' }}>{toastMessage}</Toast.Body>
+          <Toast.Body className="custom-toast-text press-start-font" style={{ backgroundColor: 'black', fontSize: '24px' }}>{toastMessage}</Toast.Body>
         </Toast>
       </ToastContainer>
 

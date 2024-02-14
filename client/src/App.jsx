@@ -51,7 +51,7 @@ function App()
         <Button variant="outline-success" onClick={() => setShowModal(true)} className="fixed-chat-button thick-outline">
           <FontAwesomeIcon icon={faPlus} size="3x" />
         </Button>
-        <h1 style={{ color: '#00FF66',paddingLeft: '50px', fontSize:'60px' }}>Messages:</h1>
+        <h1 style={{ color: '#00FF66',paddingLeft: '50px', fontSize:'60px' }} className='press-start-font'>Messages:</h1>
         <div className='messages-container'>
           {messages.map((message, index) => (
             // Use MessageCard for each message

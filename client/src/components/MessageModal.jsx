@@ -2,9 +2,10 @@ import React from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import "./MessageModal.css"
 
-function MessageModal({ showModal, handleCloseModal, currentMessage, setCurrentMessage, sendMessage }) {
-  // Function to handle changes to each part of the message object
-  const handleChange = (key, value) => {
+function MessageModal({ showModal, handleCloseModal, currentMessage, setCurrentMessage, sendMessage })
+{
+  const handleChange = (key, value) =>
+  {
     setCurrentMessage({ ...currentMessage, [key]: value });
   };
 
@@ -20,6 +21,7 @@ function MessageModal({ showModal, handleCloseModal, currentMessage, setCurrentM
           value={currentMessage.codename || ''}
           onChange={(e) => handleChange('codename', e.target.value)}
           placeholder="Codename"
+          className='press-start-font'
         />
         <Form.Control
           size="lg"
@@ -27,6 +29,7 @@ function MessageModal({ showModal, handleCloseModal, currentMessage, setCurrentM
           value={currentMessage.message || ''}
           onChange={(e) => handleChange('message', e.target.value)}
           placeholder="Type your message here..."
+          className='press-start-font'
         />
         <Form.Control
           size="lg"
@@ -34,13 +37,14 @@ function MessageModal({ showModal, handleCloseModal, currentMessage, setCurrentM
           value={currentMessage.password || ''}
           onChange={(e) => handleChange('password', e.target.value)}
           placeholder="Passphrase"
+          className='press-start-font'
         />
       </Modal.Body>
       <Modal.Footer>
         <Button variant="outline-warning" onClick={handleCloseModal}>
           Close
         </Button>
-        <Button variant="outline-success neon-green" onClick={sendMessage}>
+        <Button variant="outline-success neon-green press-start-font" onClick={sendMessage}>
           Send Message
         </Button>
       </Modal.Footer>

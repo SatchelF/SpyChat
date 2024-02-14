@@ -5,7 +5,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <div className="header-container">
-      <h2 className="header-text">Spy Chat</h2>
+      <h2 className="header-text sixtyfour-title">Spy Chat</h2>
       <FontAwesomeIcon icon={faUserSecret} className="icon" />
     </div>
   );
